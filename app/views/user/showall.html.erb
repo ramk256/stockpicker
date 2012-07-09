@@ -1,0 +1,18 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @user.each do |user1| %>
+    <li>
+      <%= link_to user1.name, user_id_path(user1) %>
+      <% if (current_user.admin == true) && !current_user?(user1) %>
+    | <%= link_to "delete", user1, :method => :delete,
+                                  :data => { :confirm => "You sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
