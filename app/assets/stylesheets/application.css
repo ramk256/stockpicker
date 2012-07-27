@@ -18,3 +18,28 @@
   width: 940px;
 	
 }
+
+#updating_area {
+	
+}
+
+.header_space {
+  float: none;
+  margin: 20px 0px 20px 0px;
+}
+
+th, td {
+  text-align: left;
+}
+
+table {
+  	
+}
+
+.logo {
+ /*float:left;
+ display: inline;	*/
+  float: left;
+}
+}
+

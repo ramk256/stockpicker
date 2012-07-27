@@ -24,4 +24,16 @@ class StockMailer < ActionMailer::Base
 
     mail :to => "to@example.org"
   end
+  
+  
+  def buy_alert(stock, email)
+    @stock = stock
+    mail :to => email, :subject => "Buy this stock!"
+  end
+  
+  def sell_alert(stock, email)
+    @stock = stock
+    mail :to => email, :subject => "Sell this stock!"
+  end
+  
 end

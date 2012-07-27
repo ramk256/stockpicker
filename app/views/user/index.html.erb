@@ -1,17 +1,16 @@
+
+
 <h1>Welcome to the stock tracker site!</h1>
-
 <p> Please log in!</p>
-
-<div class="row">
-	
+<div class="row">	
   <div class="span6 offset3">
     <%= form_for(@user, :url => user_path)  do |f| %>
 
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :placeholder => "e.g. John Smith" %>
 
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :placeholder => "e.g. john@johnsmith.com" %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>

@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+  $('#stock_name').live('change', function(event){
+    var selectedStock = document.getElementById("stock_name").value;
+   // alert("The value is " + selectedStock);
+    
+    $.ajax('/stock/get_price', {
+    	data: { symbol: selectedStock },
+    	success: function(result) {
+    		$("#current_price").html(result);
+    	},
+    	error: function() {
+    		$("#current_price").html("Unable to retrieve stock price.");
+    	}
+    });
+  });
+});

@@ -1,1 +1,18 @@
-<%= @user.name %>, <%= @user.email %>
+
+<h3> Welcome back, <%= @user.name %>!</h3>
+
+<h3> Here is a list of your stocks and how they are doing: </h3>
+
+<table class="span12">
+<tr><th>Stock Name</th><th>Current Price</th><th>Bought Price</th><th># of Shares</th><th>ROI</th></tr>
+<% @user.stocks.each do |stock| %>
+<tr><td><%= stock.name%></td><td><%= stock.price %></td></tr>
+<% end %>
+</table>
+
+<div class="header_space"><%= link_to "Add more stocks to your list", add_stock_path, :remote => true %></div>
+
+<div id="addstock">
+	
+	
+</div>

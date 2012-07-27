@@ -6,7 +6,9 @@ class UserController < ApplicationController
   
   def index
     @user = User.new
-    
+    if signed_in?
+      redirect_to user_id_url(current_user)
+    end
   end
   
   def create 
@@ -21,8 +23,24 @@ class UserController < ApplicationController
     end
   end
   
+  def add_stock
+    @stock = Stock.new
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    
+  end
+  
   def show
     @user = User.find(params[:id])
+    @stock = Stock.new
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def edit

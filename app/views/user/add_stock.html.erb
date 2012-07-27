@@ -1,0 +1,15 @@
+<h3 class="header_space">Add stocks to your account here!</h3>
+<div id="updating_area">
+<h4>Selected Stock Price: </h4>
+<h5 id='current_price'>You haven't selected a stock yet</h5>
+</div>
+<div>
+<%= form_for(@stock, :url => add_stock_url) do |f| %>
+	<%= f.select :name, StockListing.all.collect {|stock| [stock.name, stock.symbol] }, :class => "dropdown-menu" %>
+	<%= f.label :sell %>
+	<%= f.text_field :sell %>
+	<%= f.label :buy %>
+	<%= f.text_field :buy %>
+	<%= f.submit "Submit", :class => "btn btn-medium btn-primary" %>
+<% end %>
+</div>

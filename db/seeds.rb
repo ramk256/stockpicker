@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+
+File.open("/Users/ramkandasamy/Downloads/companylist.csv", "r") do |infile|
+  while (line = infile.gets)
+    stock_line = line.split(",")
+    StockListing.create(:symbol => stock_line[0].delete("\""), :name => stock_line[1].delete("\""))
+  end
+end
+    
+

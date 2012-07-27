@@ -2,6 +2,9 @@ StockPicker::Application.routes.draw do
   get "stock/add"
 
   get "stock/display"
+  
+  
+  
  
   #if the user submits form, we do a post
 
@@ -22,6 +25,11 @@ StockPicker::Application.routes.draw do
   put    'user/:id'      => 'user#update'
   delete 'user/:id'      => 'user#destroy'
   
+  get 'user/:id/add_stock' => 'user#add_stock', :as => :add_stock 
+  
+  post 'user/:id/add_stock' => 'stock#create'
+  
+  post 'user/:id' => 'stock#create'
   
   #now we need to define routes for the session as well, which has
   #new, create, and destroy actions
@@ -34,6 +42,8 @@ StockPicker::Application.routes.draw do
   get '/signin' => 'session#new', :as => :signin
   delete '/signout' => 'session#destroy', :as => :signout
   
+  
+  get 'stock/get_price' => 'stock#get_price'
   
   #get "/" => 'user#index'
   
